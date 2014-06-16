@@ -1,0 +1,37 @@
+body {
+    font-family: Verdana, Arial, sans-serif;
+    color: #333333;
+    font-size: 1.5em;
+    line-height: 2.0em;
+}
+
+.word {
+    border: 1px solid transparent;
+    -webkit-box-shadow: transparent 1px 1px;
+    box-shadow: transparent 1px 1px;
+}
+
+.mem-hide {
+    color: transparent;
+    border-color: black;
+    -webkit-box-shadow: #808080 2px 2px;
+    box-shadow: #808080 2px 2px;
+    border-radius: 2px;
+    cursor: pointer;
+    -moz-transition-property: all;
+    -o-transition-property: all;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.25s;
+    -o-transition-duration: 0.25s;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+i {
+    font-style: normal;
+}

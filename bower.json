@@ -1,0 +1,23 @@
+{
+  "name": "memorize",
+  "version": "0.0.1",
+  "authors": [
+    "Mike Callaghan <MikeCallaghan67@gmail.com>"
+  ],
+  "description": "Helps you memorize a passage of text.",
+  "main": "index.html",
+  "keywords": [
+    "memorize"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}

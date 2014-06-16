@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <title>Memorize A Passage</title>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Memorize a Passage</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="#" id="hideWords">Hide Words</a></li>
+                <li><a href="#" id="firstLetters">First Letters</a></li>
+                <li><a href="#" id="showAll">Show All</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <div class="row">
+        <div id="textToMemorize">
+            You create happiness for our Guests. I want you to write this in your guidebook. I, personally, create
+            happiness. This is an incredibly important message for you to remember. Why? Well, here are just a few of
+            the reasons.
+            When it comes to creating happiness:
+             You are the dreamers and doers
+             You touch the lives of Guests from around the world every day—by creating happiness
+             You can make a little girl feel like a princess or defend a castle from pirate scoundrels—or anything in
+            between
+             You bring the dream to life by using your imagination, exploring new ideas and innovations, and creating
+            an environment of happiness for our Guests, and our fellow Cast Members, Crew Members, and Imagineers
+            We have told you that we create happiness, which is based on our traditions and heritage, which guide our
+            future. But it all really comes down to you!
+            Now, all of this may seem great, but you might be asking yourself, can I really do all this? Will my
+            individual role really have that much Guest impact? The answer is yes!
+             Do not ever doubt the impact you have on Guests
+             Whether you work backstage or on stage, are in professional services or Operations, each of us plays a key
+            role in keeping the show alive
+            Simply put, it is our people who truly create happiness for our Guests, and we do that in big ways and—more
+            often—in our simple, every day actions that often have a greater impact than we expect. Here is an
+            experience I had with a Guest that I would like to now share with you.
+            <hr />
+            There are hundreds of stories like that EVERY day here at Walt Disney World® Resort, at our locations around the world—of Cast Members brightening a Guest’s day with a Mickey Mouse sticker, stopping to take a photo, of just doing our jobs.
+            We know you will do great things. I am sure it will not be long before you realize the impact you have made to someone here at Disney.
+        </div>
+        <hr/>
+    </div>
+</div>
+</body>
+
+<script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+<script>
+    $(function () {
+        // Wrap each "word" in a span
+        var text = $('#textToMemorize').text().trim();
+        var words = text.split(/\s+/g);
+        var html = '';
+        $(words).each(function () {
+            html += '<span class="word"><i class="firstLetter">'
+                    + this.substring(0, 1)
+                    + '</i><i class="restOfWord">'
+                    + this.substring(1) + '</i></span> ';
+
+        });
+
+        $('#textToMemorize').html(html);
+
+        // Hide 20% of the visible words
+        $('#hideWords').click(function () {
+            $('#textToMemorize span').not('.mem-hide').each(function () {
+                if (Math.ceil(Math.random() * 100) < 20) {
+                    $(this).addClass('toHide');
+                }
+            });
+
+            // Now hide them
+            $('.toHide').addClass('mem-hide').removeClass('toHide');
+        });
+
+        $('#firstLetters').click(function () {
+            $('#textToMemorize i.restOfWord').addClass('mem-hide');
+        });
+
+        $('#showAll').click(function () {
+            $('.mem-hide').removeClass('mem-hide');
+        });
+
+        // Make visible any element clicked
+        $('#textToMemorize').on('click', '.mem-hide', function () {
+            $(this).removeClass('mem-hide');
+        });
+    });
+</script>
+</html>
